@@ -1,0 +1,7 @@
+Django==1.10.6
+requests==2.13.0
+djoser==0.5.4
+djangorestframework==3.6.2
+markdown==2.6.8
+django-filter==1.0.2
+djangorestframework-jwt==1.10.0
