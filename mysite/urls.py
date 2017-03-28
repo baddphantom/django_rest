@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from blog.views import index, post
+
 import rest_framework_jwt.views
 import djoser.views
 
+admin.autodiscover()
+
 urlpatterns = [
+    url(r'^$', index, name='index'),
+    url(r'^(?P<slug>[\w\-]+)/$', post, name='post'),
+
     url(r'^auth/login', rest_framework_jwt.views.obtain_jwt_token),  # using JSON web token
     url(r'^auth/register', djoser.views.RegistrationView.as_view()),
     url(r'^auth/password/reset', djoser.views.PasswordResetView.as_view()),
